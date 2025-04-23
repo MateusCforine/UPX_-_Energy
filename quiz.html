@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz - Renova Energia</title>
+<link rel="stylesheet" href="estilo.css">
+
+</head>
+<body>
+
+<header class="menu">
+  <div class="logo"><h1>RENOVA <br/> ENERGIA</h1></div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="tipos.html">Tipos</a></li>
+      <li><a href="tecnologia.html">Tecnologias</a></li>
+      <li><a href="impactos.html">Impactos</a></li>
+      <li><a href="residencial.html">Residencial</a></li>
+      <li><a href="contato.html">Contato</a></li>
+      <li><a href="quiz.html">Quiz</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+<section class="quiz-container">
+  <h2>Quiz - Teste seus conhecimentos sobre energia renovável!</h2>
+
+  <!-- PERGUNTA 1 -->
+  <div class="pergunta">
+    <p>1) Qual é uma das principais vantagens da energia solar?</p>
+    <label><input type="radio" name="q1" value="a"> a) Alta emissão de poluentes</label><br>
+    <label><input type="radio" name="q1" value="b"> b) Fonte renovável e limpa</label><br>
+    <label><input type="radio" name="q1" value="c"> c) Depende da queima de carvão</label><br>
+    <label><input type="radio" name="q1" value="d"> d) Causa desmatamento</label>
+    <div id="explicacao1" class="explicacao"></div>
+  </div>
+
+  <!-- PERGUNTA 2 -->
+  <div class="pergunta">
+    <p>2) Qual fonte de energia utiliza a força dos ventos?</p>
+    <label><input type="radio" name="q2" value="a"> a) Solar</label><br>
+    <label><input type="radio" name="q2" value="b"> b) Geotérmica</label><br>
+    <label><input type="radio" name="q2" value="c"> c) Eólica</label><br>
+    <label><input type="radio" name="q2" value="d"> d) Biomassa</label>
+    <div id="explicacao2" class="explicacao"></div>
+  </div>
+
+  <!-- PERGUNTA 3 -->
+  <div class="pergunta">
+    <p>3) O que é a biomassa?</p>
+    <label><input type="radio" name="q3" value="a"> a) Energia gerada pela água</label><br>
+    <label><input type="radio" name="q3" value="b"> b) Energia obtida da força do vento</label><br>
+    <label><input type="radio" name="q3" value="c"> c) Energia proveniente de matéria orgânica, como plantas e resíduos</label><br>
+    <label><input type="radio" name="q3" value="d"> d) Energia do calor interno da Terra</label>
+    <div id="explicacao3" class="explicacao"></div>
+  </div>
+
+  <!-- PERGUNTA 4 -->
+  <div class="pergunta">
+    <p>4) Qual das opções abaixo é um impacto positivo das energias renováveis?</p>
+    <label><input type="radio" name="q4" value="a"> a) Poluição atmosférica</label><br>
+    <label><input type="radio" name="q4" value="b"> b) Redução de gases poluentes</label><br>
+    <label><input type="radio" name="q4" value="c"> c) Destruição de habitats naturais</label><br>
+    <label><input type="radio" name="q4" value="d"> d) Aumento do aquecimento global</label>
+    <div id="explicacao4" class="explicacao"></div>
+  </div>
+
+  <!-- PERGUNTA 5 -->
+  <div class="pergunta">
+    <p>5) O que é necessário para a implementação de um sistema de energia solar residencial?</p>
+    <label><input type="radio" name="q5" value="a"> a) Somente a autorização da prefeitura</label><br>
+    <label><input type="radio" name="q5" value="b"> b) Apenas painéis solares</label><br>
+    <label><input type="radio" name="q5" value="c"> c) Projeto elétrico aprovado, certificação e autorização de funcionamento</label><br>
+    <label><input type="radio" name="q5" value="d"> d) Gerador a carvão</label>
+    <div id="explicacao5" class="explicacao"></div>
+  </div>
+
+  <button onclick="verificarRespostas()">Verificar respostas</button>
+  <div class="resultado" id="resultado"></div>
+</section>
+</main>
+
+<script>
+function verificarRespostas() {
+  const respostasCorretas = ['b', 'c', 'c', 'b', 'c'];
+  const explicacoes = [
+    'Resposta correta: b) Fonte renovável e limpa. A energia solar é uma fonte inesgotável, não gera poluentes durante a produção de energia e contribui para a preservação do meio ambiente.',
+    'Resposta correta: c) Eólica. A energia eólica transforma a força do vento em eletricidade, utilizando aerogeradores (turbinas eólicas). É uma das fontes renováveis mais eficientes e sustentáveis.',
+    'Resposta correta: c) Energia proveniente de matéria orgânica, como plantas e resíduos. A biomassa utiliza resíduos vegetais, restos de madeira e matéria orgânica para gerar energia, sendo uma alternativa aos combustíveis fósseis e promovendo o reaproveitamento de resíduos.',
+    'Resposta correta: b) Redução de gases poluentes. As energias renováveis, como solar, eólica e hidroelétrica, não emitem gases poluentes durante a geração de eletricidade, contribuindo para a redução do efeito estufa e do aquecimento global.',
+    'Resposta correta: c) Projeto elétrico aprovado, certificação e autorização de funcionamento. Para garantir segurança e eficiência, é obrigatório ter um projeto elétrico devidamente aprovado, com a certificação dos equipamentos e autorização da concessionária de energia.'
+  ];
+  let acertos = 0;
+
+  for (let i = 1; i <= 5; i++) {
+    const opcoes = document.querySelectorAll(`input[name="q${i}"]`);
+    let respondeu = false;
+    let acertou = false;
+
+    opcoes.forEach(opcao => {
+      opcao.parentElement.style.color = 'black';
+
+      if (opcao.value === respostasCorretas[i - 1]) {
+        opcao.parentElement.style.color = 'green';
+      }
+
+      if (opcao.checked) {
+        respondeu = true;
+        if (opcao.value === respostasCorretas[i - 1]) {
+          acertos++;
+          acertou = true;
+        } else {
+          opcao.parentElement.style.color = 'red';
+        }
+      }
+    });
+
+    const explicacaoEl = document.getElementById(`explicacao${i}`);
+    if (respondeu && !acertou) {
+      explicacaoEl.innerHTML = `<span style='color:red;'>${explicacoes[i - 1]}</span>`;
+    } else {
+      explicacaoEl.innerHTML = '';
+    }
+  }
+
+  const resultado = document.getElementById('resultado');
+  resultado.innerHTML = `Você acertou ${acertos} de 5 perguntas!`;
+  resultado.className = acertos >= 3 ? 'resultado correto' : 'resultado incorreto';
+
+  if (acertos >= 4) {
+    resultado.style.animation = 'pulsar 1s infinite';
+  } else {
+    resultado.style.animation = 'none';
+  }
+}
+</script>
+
+</body>
+</html>

@@ -121,17 +121,16 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.5); /* fundo escuro com transparência */
-    padding: 20px 40px;
+    background-color: rgba(0, 0, 0, 0.5); 
     border-radius: 10px;
     font-size: 32px;
     font-weight: bold;
   }
   .card-img {
-    width: 50%;               /* A imagem ocupa toda a largura do card */
-    height: 200px;             /* Altura padronizada para todas as imagens */
-    object-fit: cover;         /* Mantém a proporção e centraliza a imagem no espaço */
-    border-radius: 8px;        /* Mantém o estilo arredondado harmonizando com o restante do site */
-    margin-bottom: 10px;       /* Espaço entre a imagem e o texto abaixo */
+    width: 50%;               
+    height: 200px;             
+    object-fit: cover;        
+    border-radius: 8px;        
+    margin-bottom: 10px;       
   }
   

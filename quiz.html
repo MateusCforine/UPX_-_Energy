@@ -7,6 +7,71 @@
     <title>Quiz - Renova Energia</title>
     <link rel="stylesheet" href="estilo.css">
 
+
+<style>
+.quiz-container h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 30px;
+}
+
+.pergunta p {
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.pergunta label {
+  display: block;
+  padding: 10px;
+  margin-bottom: 5px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: background-color 0.3s, transform 0.2s;
+  cursor: pointer;
+}
+
+.pergunta input[type="radio"] {
+  margin-right: 8px;
+}
+
+.pergunta label:hover {
+  background-color: #eefdf7;
+  transform: scale(1.01);
+}
+
+button {
+  display: block;
+  margin: 30px auto 20px;
+  padding: 12px 24px;
+  background-color: #1abc9c;
+  color: white;
+  border: none;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #16a085;
+  transform: scale(1.05);
+}
+
+.resultado {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #eafaf1;
+  border: 1px solid #b2dfdb;
+}
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
 </head>
 
 <body>
@@ -135,6 +200,15 @@
             const resultado = document.getElementById('resultado');
             resultado.innerHTML = `Você acertou ${acertos} de 5 perguntas!`;
             resultado.className = acertos >= 3 ? 'resultado correto' : 'resultado incorreto';
+
+if (acertos === 5) {
+  confetti({
+    particleCount: 150,
+    spread: 100,
+    origin: { y: 0.6 }
+  });
+}
+
 
             if (acertos >= 4) {
                 resultado.style.animation = 'pulsar 1s infinite';

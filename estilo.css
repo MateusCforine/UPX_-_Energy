@@ -212,30 +212,3 @@ nav ul li a:hover {
     transform: translateY(0);
   }
 }
-
-main {
-  animation: fadeInUp 0.8s ease-in-out;
-}
-
-body {
-  background: #fefefe;
-}
-h2, h3 {
-  color: #2c3e50;
-}
-ul {
-  list-style: none;
-  padding: 0;
-}
-ul li::before {
-  content: "🌱 ";
-}
-.empresas ul li::before {
-  content: "🏢 ";
-}
-nav ul li a {
-  transition: all 0.3s ease;
-}
-nav ul li a:hover {
-  color: #f39c12;
-}
